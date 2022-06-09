@@ -18,9 +18,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   MyHomePage();
 
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +48,11 @@ class MyHomePage extends StatelessWidget {
           Card(
             child: Row(
               children: const <Widget>[
-                //Agregar TextField
+                //TextField(
+                //  decoration: InputDecoration(
+                //    labelText: 'Buscar en Rappi'
+                //  )
+                //),
                 IconButton(onPressed: null, icon: Icon(Icons.search)),
                 IconButton(onPressed: null, icon: Icon(Icons.notifications))
               ]
@@ -111,4 +120,6 @@ class MyHomePage extends StatelessWidget {
     //drawer: Drawer(),
     );
   }
+
+
 }
