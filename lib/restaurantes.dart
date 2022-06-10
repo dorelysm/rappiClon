@@ -138,7 +138,74 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
               ]
             )
           ),
-          
+          const Card(
+            child: Text('Restaurantes cerrados'),
+          ),
+          const Card(
+            child: Divider(
+              height: 5,
+              thickness: 1,
+              color: Colors.grey,
+            )
+          ),
+          Card(
+            child: Column(
+              children: <Widget>[
+                Row( 
+                  children: <Widget>[
+                    Image.asset("assets/french-restaurant.jpg"),
+                    Row(
+                      children: <Widget>[
+                        const TextButton(onPressed: null, child: Text('Restaurante 1')),
+                        const Text('Tipo de restaurante'),
+                        Row(
+                          children: const <Widget>[
+                            Icon(Icons.schedule),
+                            Text('Tiempo')
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                Row( 
+                  children: <Widget>[
+                    Image.asset("assets/french-restaurant.jpg"),
+                    Row(
+                      children: <Widget>[
+                        const TextButton(onPressed: null, child: Text('Restaurante 1')),
+                        const Text('Tipo de restaurante'),
+                        Row(
+                          children: const <Widget>[
+                            Icon(Icons.schedule),
+                            Text('Tiempo')
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                Row( 
+                  children: <Widget>[
+                    Image.asset("assets/french-restaurant.jpg"),
+                    Row(
+                      children: <Widget>[
+                        const TextButton(onPressed: null, child: Text('Restaurante 1')),
+                        const Text('Tipo de restaurante'),
+                        Row(
+                          children: const <Widget>[
+                            Icon(Icons.schedule),
+                            Text('Tiempo')
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                ),
+              ]
+            )
+          ), 
+
         ]
       )
 
