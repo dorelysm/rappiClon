@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'userProfile.dart';
 import 'restaurantes.dart';
 
 void main() {
@@ -28,11 +28,78 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void _openDrawer() {
+    _scaffoldKey.currentState!.openDrawer();
+  }
+
+  void _closeDrawer() {
+    Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    Widget addressSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: Row(
+        children: [
+          /*1*/
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Icon(
+              Icons.location_on_rounded,
+              color: Colors.red[500],
+            ),
+          ]),
+          Expanded(
+            /*3*/
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /*2*/
 
-      //appBar: AppBar(),
+                Container(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: const Text(
+                    'Calle 00 #11 - 22 Apto 123',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+
+    void _profileView() {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (context) {
+            return ProfileView();
+          },
+        ),
+      );
+    }
+
+    void _restaurantsView() {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (context) {
+            return RestaurantsPage();
+          },
+        ),
+      );
+    }
+
+
+    return Scaffold(
+      key: _scaffoldKey,
+      // appBar: AppBar(
+      //   title: const Text('Welcome to Rappi clone'),
+      // ),
 
       body: ListView(
         children: <Widget>[
@@ -77,9 +144,24 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ),
           
-          const Card(
-            //Agregar GridView
-          ),
+          //Card(
+          //  child: GridView.count(
+          //    crossAxisCount: 2,
+          //    scrollDirection: Axis.horizontal,
+          //    children: const <Widget>[
+          //      IconButton(onPressed: () {
+          //          _showRestaurantesPage(context);
+          //        }, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+          //      IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+          //      IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+          //      IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+          //      IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+          //      IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+          //      IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+          //      IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+          //    ]
+          //  )
+          //),
 
           Card(
             child: Row(
@@ -93,8 +175,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Card(
             color: Colors.orange,
             child: Column(
-              children: const <Widget>[
-                Text("Supermercados"),
+              children: <Widget>[
+                const Text("Supermercados"),
                 //Agregar listView
                 //ListView(
                 //  children: const <Widget>[
@@ -104,8 +186,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 //  ]
                 //),
                 ElevatedButton(
-                  onPressed: null,
-                  child: Text('Ver todos los mercados')
+                  onPressed: () {
+                    _showRestaurantesPage(context);
+                  },
+                  child: const Text('Ver todos los mercados')
                   )
               ]
               )
@@ -114,14 +198,32 @@ class _MyHomePageState extends State<MyHomePage> {
         ]
       ),
 
-    floatingActionButton: FloatingActionButton(
-      child: const Icon(Icons.menu),
-      onPressed: () {
-        _showRestaurantesPage(context);
-      },
-    ), 
+
     
-    //drawer: Drawer(),
+    drawer: Drawer(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'Hola name',
+                style: TextStyle(fontSize: 20),
+              ),
+              ElevatedButton(
+                onPressed: _profileView,
+                child: const Text('Datos de Perfil'),
+              ),
+            ],
+          ),
+        ),
+      ),
+      drawerEnableOpenDragGesture: false,
+      floatingActionButton: FloatingActionButton(
+        onPressed: _openDrawer,
+        tooltip: 'Login menu',
+        child: const Icon(Icons.menu),
+      ), 
+
     );
   }
 
