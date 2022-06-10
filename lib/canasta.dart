@@ -47,8 +47,15 @@ class _canastaPageState extends State<canastaPage> {
               color: Colors.grey,
             )
           ),
-          const Card(
-            //ListView.builder(itemBuilder: itemBuilder)
+          Card(
+            child: ListView.builder(
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index){
+                return ListTile(
+                  leading: Image.asset("assets/cake.jpg"),
+                  title: const Text('Nombre del producto')
+                );
+              }),
           ),
           const Card(child: Divider(
               height: 5,
@@ -60,9 +67,15 @@ class _canastaPageState extends State<canastaPage> {
         ]
       ),
 
-      floatingActionButton: const FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         onPressed: null,
-        child: Text('Ir a pagar'),
+        child: Row(
+          children: const <Widget>[
+            Text('Ir a pagar'),
+            Text('Subtotal:'),
+            Text('&total')
+          ]
+        )
       ),
 
     );

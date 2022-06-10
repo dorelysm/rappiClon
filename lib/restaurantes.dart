@@ -209,10 +209,7 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
         ]
       ),
 
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        child: Text('Ver canasta'),
-      ),
+      
     );
 
 
