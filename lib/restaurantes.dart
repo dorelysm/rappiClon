@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'Rappi clon',
       home: RestaurantsPage());
   }
 }
@@ -207,8 +207,12 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
           ), 
 
         ]
-      )
+      ),
 
+      floatingActionButton: const FloatingActionButton(
+        onPressed: null,
+        child: Text('Ver canasta'),
+      ),
     );
 
 
