@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'restaurantes.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -82,8 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Card(
             child: Row(
               children: const <Widget>[
-                ElevatedButton(onPressed: null, child: Text('RappiPay')),
-                ElevatedButton(onPressed: null, child: Text('CashBack')),
+                Expanded(child: ElevatedButton(onPressed: null, child: Text('RappiPay'))),
+                Expanded(child: ElevatedButton(onPressed: null, child: Text('CashBack'))),
               ]
             )
           ),
@@ -114,12 +116,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
     floatingActionButton: FloatingActionButton(
       child: const Icon(Icons.menu),
-      onPressed: () {},
+      onPressed: () {
+        _showRestaurantesPage(context);
+      },
     ), 
     
     //drawer: Drawer(),
     );
   }
 
+
+  void _showRestaurantesPage(BuildContext context) {
+    final route = MaterialPageRoute(builder: (BuildContext context){
+      return RestaurantsPage();
+    });
+    Navigator.of(context).push(route);
+  }
 
 }

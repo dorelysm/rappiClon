@@ -28,37 +28,45 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
       body: ListView(
         children: <Widget>[
           Card(
-            child: Center(
-              child: Row(
-                children: const <Widget>[
-                  Icon(
-                  Icons.add_location,
-                  color: Colors.orange,
-                  ),
-                  TextButton(onPressed: null, child: Text('Dirección'))
-                ]
+            child: Row(
+              children: const <Widget>[
+                Icon(
+                Icons.add_location,
+                color: Colors.orange,
+                ),
+                TextButton(onPressed: null, child: Text('Dirección'))
+              ]
               ),
-            )
           ),
           Card(
             child: Center(
               child: Row(
                 children: const <Widget>[
-                  ElevatedButton(onPressed: null, child: Text('A domicilio')),
-                  ElevatedButton(onPressed: null, child: Text('Para recoger')),
+                  Expanded(child: ElevatedButton(onPressed: null, child: Text('A domicilio'))),
+                  Expanded(child: ElevatedButton(onPressed: null, child: Text('Para recoger'))),
               ]
             )
             )
           ),
           Card(
+            child: Row(
+              children: const <Widget>[
+                //TextField(
+                //  decoration: InputDecoration(
+                //    labelText: '¿Qué quieres comer?'
+                //  )),
+                IconButton(onPressed: null, icon: Icon(Icons.search))
+              ]
+            )
+          ),
+          Card(
             child: Center(
               child: Row(
                 children: const <Widget>[
-                  //TextField
-                  IconButton(onPressed: null, icon: Icon(Icons.abc)),
-                  IconButton(onPressed: null, icon: Icon(Icons.abc)),
-                  IconButton(onPressed: null, icon: Icon(Icons.abc)),
-                  IconButton(onPressed: null, icon: Icon(Icons.abc)),
+                  IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+                  IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+                  IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
+                  IconButton(onPressed: null, icon: ImageIcon(AssetImage("assets/food.jpg"))),
                   OutlinedButton(onPressed: null, child: Text('Ver todo')),
                 ]
               )
@@ -86,7 +94,7 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
               children: <Widget>[
                 Row( 
                   children: <Widget>[
-                    Image.asset("assets/french-restaurant.jpg"),
+                    Image.asset("assets/french-restaurant.jpg", height: 150),
                     Row(
                       children: <Widget>[
                         const TextButton(onPressed: null, child: Text('Restaurante 1')),
@@ -103,7 +111,7 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
                 ),
                 Row( 
                   children: <Widget>[
-                    Image.asset("assets/french-restaurant.jpg"),
+                    Image.asset("assets/french-restaurant.jpg", height: 150),
                     Row(
                       children: <Widget>[
                         const TextButton(onPressed: null, child: Text('Restaurante 1')),
@@ -120,7 +128,7 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
                 ),
                 Row( 
                   children: <Widget>[
-                    Image.asset("assets/french-restaurant.jpg"),
+                    Image.asset("assets/french-restaurant.jpg", height: 150),
                     Row(
                       children: <Widget>[
                         const TextButton(onPressed: null, child: Text('Restaurante 1')),
@@ -153,7 +161,7 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
               children: <Widget>[
                 Row( 
                   children: <Widget>[
-                    Image.asset("assets/french-restaurant.jpg"),
+                    Image.asset("assets/french-restaurant.jpg", height: 150),
                     Row(
                       children: <Widget>[
                         const TextButton(onPressed: null, child: Text('Restaurante 1')),
@@ -170,7 +178,7 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
                 ),
                 Row( 
                   children: <Widget>[
-                    Image.asset("assets/french-restaurant.jpg"),
+                    Image.asset("assets/french-restaurant.jpg", height: 150),
                     Row(
                       children: <Widget>[
                         const TextButton(onPressed: null, child: Text('Restaurante 1')),
@@ -187,7 +195,7 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
                 ),
                 Row( 
                   children: <Widget>[
-                    Image.asset("assets/french-restaurant.jpg"),
+                    Image.asset("assets/french-restaurant.jpg", height: 150),
                     Row(
                       children: <Widget>[
                         const TextButton(onPressed: null, child: Text('Restaurante 1')),
