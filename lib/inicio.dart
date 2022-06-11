@@ -28,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _openDrawer() {
@@ -213,17 +214,56 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: _profileView,
                 child: const Text('Datos de Perfil'),
               ),
+              TextButton.icon(
+                label: const Text('Cerrar sesión'),
+                icon: const Icon(Icons.exit_to_app),
+                onPressed: () {}
+                )
             ],
           ),
         ),
       ),
-      drawerEnableOpenDragGesture: false,
-      floatingActionButton: FloatingActionButton(
-        onPressed: _openDrawer,
-        tooltip: 'Login menu',
-        child: const Icon(Icons.menu),
-      ), 
 
+      drawerEnableOpenDragGesture: false,
+
+      floatingActionButton: Wrap(
+        direction: Axis.horizontal,
+        alignment: WrapAlignment.center,
+        children: <Widget>[
+          Container(
+            margin:const EdgeInsets.all(10),
+            child: FloatingActionButton(
+              onPressed: () {
+                _openDrawer();
+              },
+              child: Icon(Icons.menu),
+              backgroundColor: Colors.white,
+            ),
+          ),
+          Container(
+            margin:const EdgeInsets.all(10),
+            child: FloatingActionButton(
+              onPressed: () {
+                
+              },
+              child: Icon(Icons.discount),
+              backgroundColor: Colors.white,
+            ),
+          ),
+          Container(
+            margin:const EdgeInsets.all(10),
+            child: FloatingActionButton(
+              onPressed: () {
+                
+              },
+              child: Icon(Icons.contact_support),
+              backgroundColor: Colors.white,
+            ),
+          ),
+        ]
+      ),
+
+      
     );
   }
 
