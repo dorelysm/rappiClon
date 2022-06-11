@@ -7,6 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +22,17 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage();
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+<<<<<<< HEAD
 
+=======
+>>>>>>> df6c45f9afb246e3c714fae562736db8b25ecf9c
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _openDrawer() {
@@ -54,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ]),
           Expanded(
             /*3*/
+<<<<<<< HEAD
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -195,13 +200,70 @@ class _MyHomePageState extends State<MyHomePage> {
               ]
               )
           )
+=======
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /*2*/
+>>>>>>> df6c45f9afb246e3c714fae562736db8b25ecf9c
 
-        ]
+                Container(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: const Text(
+                    'Calle 00 #11 - 22 Apto 123',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
+    );
 
+<<<<<<< HEAD
 
     
     drawer: Drawer(
+=======
+    void _profileView() {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (context) {
+            return ProfileView();
+          },
+        ),
+      );
+    }
+
+    void _restaurantsView() {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (context) {
+            return RestaurantsPage();
+          },
+        ),
+      );
+    }
+
+    return Scaffold(
+      key: _scaffoldKey,
+      // appBar: AppBar(
+      //   title: const Text('Welcome to Rappi clone'),
+      // ),
+      body: Center(
+          child: Column(
+        children: [
+          addressSection,
+          ElevatedButton(
+              onPressed: _restaurantsView,
+              child: const Text('Ver todos los restaurantes'))
+        ],
+      )),
+      drawer: Drawer(
+>>>>>>> df6c45f9afb246e3c714fae562736db8b25ecf9c
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -214,15 +276,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: _profileView,
                 child: const Text('Datos de Perfil'),
               ),
+<<<<<<< HEAD
               TextButton.icon(
                 label: const Text('Cerrar sesión'),
                 icon: const Icon(Icons.exit_to_app),
                 onPressed: () {}
                 )
+=======
+>>>>>>> df6c45f9afb246e3c714fae562736db8b25ecf9c
             ],
           ),
         ),
       ),
+<<<<<<< HEAD
 
       drawerEnableOpenDragGesture: false,
 
@@ -264,15 +330,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       
+=======
+      drawerEnableOpenDragGesture: false,
+      floatingActionButton: FloatingActionButton(
+        onPressed: _openDrawer,
+        tooltip: 'Login menu',
+        child: const Icon(Icons.menu),
+      ),
+>>>>>>> df6c45f9afb246e3c714fae562736db8b25ecf9c
     );
   }
-
-
-  void _showRestaurantesPage(BuildContext context) {
-    final route = MaterialPageRoute(builder: (BuildContext context){
-      return RestaurantsPage();
-    });
-    Navigator.of(context).push(route);
-  }
-
 }

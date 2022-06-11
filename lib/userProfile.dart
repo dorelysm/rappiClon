@@ -115,4 +115,8 @@ class _ProfileViewState extends State<ProfileView> {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> df6c45f9afb246e3c714fae562736db8b25ecf9c
